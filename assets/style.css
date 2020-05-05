@@ -20,35 +20,38 @@ textarea{
   border-radius: 0;
   border-bottom: 10px solid black;
 }
-
+/* user input */
 .description{
   white-space: pre-wrap;
+  height: auto;
 }
-
+/* the entire row for block of time */
 .time-block{
   text-align: center;
   border-radius: 15px;
-}
 
+}
+/* sets the row */
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
 }
-
+/*css for div holding the hour  */
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/* css that is used for manipulation */
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #6179ff;
   color: white;
 }
 
@@ -56,7 +59,7 @@ textarea{
   background-color: #77dd77;
   color: white;
 }
-
+/* buttons */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
