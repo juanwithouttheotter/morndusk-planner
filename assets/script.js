@@ -1,10 +1,26 @@
 $(document).ready(function () {
   var now = moment().format("[Today is ] dddd, MMMM Do YYYY");
   $("#currentDay").html(now);
-  var workDay = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
-  var dayEvents = {};
+
+  if (localStorage.getItem('event') !== null) {
+    var workDay = JSON.parse(localStorage.getItem('event'));
+    console.log(workDay);
+  } else {
+    var workDay = {
+      '9am':'',
+      '10am':'',
+      '11am':'',
+      '12pm':'',
+      '1pm':'',
+      '2pm':'',
+      '3pm':'',
+      '4pm':'',
+      '5pm':''
+    };
+  }
+
   var calendar = function () {
-    for (hour of workDay) {
+    for (hour in workDay) {
       $(".container").append(`
       <div class="input-group row time-block">
         <div class="hour col-md-1">${hour}</div>
@@ -13,21 +29,23 @@ $(document).ready(function () {
       </div>
     `);
     }
+    for(hour in workDay){
+      $(`input[id='${hour}']`).val(workDay[hour]);
+    }
+
     $('.saveBtn').on('click', function () {
-      for(hour of workDay) {
-      var event = $(`input[id='${hour}']`).val();
-      console.log(event,hour);
-      dayEvents[hour] = event;
+      for (hour in workDay) {
+        var event = $(`input[id='${hour}']`).val();
+        console.log(event, hour);
+        workDay[hour] = event;
+        localStorage.setItem('event', JSON.stringify(workDay));
       }
-      console.log(dayEvents);
     });
-
-
     whatTime();
   }
 
   var whatTime = function () {
-    for (hour of workDay) {
+    for (hour in workDay) {
       var format = 'hh:A'
       var time = moment('11:30:00:AM', format);
       //feed in var time to do a time check for startHour/endHour
@@ -45,22 +63,5 @@ $(document).ready(function () {
       }
     }
   }
-  //working on saving key an object to the proper input
-  //for loop
-  // if key === in put id, add value/user input
-
-  // $(document).on('click', '.saveBtn', function () {
-  //     var event = $(this).closest("div.input-group").find("input[class='form-control']").val();
-  //     console.log(event);
-  //   });
-
-
-  // $('.saveBtn').on('click', function(){
-  //   console.log('I be clicked');
-  // });
-
-
-
   calendar();
-
 });
