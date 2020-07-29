@@ -1,6 +1,4 @@
 # morndusk-planner
-Using jQuery and Moment.js to create a daily work planner with dynamically updated css and html.
-# Pass-Gen
 ![Github Badge](https://img.shields.io/github/languages/top/juanwithouttheotter/morndusk-planner)
 ![Github Badge](https://img.shields.io/github/languages/count/juanwithouttheotter/morndusk-planner?color=green)
 
