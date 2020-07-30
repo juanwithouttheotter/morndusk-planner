@@ -20,7 +20,7 @@ This project uses jQuery and Moment.js to create a daily work planner with dynam
 
 ### Contribution
 
-This repository is used for learning purposed please refrain from contributions or forking without explicit permission.
+This repository is used for learning purposes. Please refrain from contributions or forking without explicit permission.
 
 **Contributors**
 
